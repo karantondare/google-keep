@@ -8,7 +8,10 @@ import notesRoutes from "./routes/notesRoutes.js";
 
 const app = express();
 dotenv.config();
-app.use(cors());
+const corsOptions = {
+  origin: ["https://notes-keeper-karan.netlify.app"],
+};
+app.use(cors(corsOptions));
 app.use(express.json({ extended: false }));
 const PORT = process.env.PORT || 3001;
 
