@@ -12,9 +12,14 @@ const customStyles = {
   },
 };
 
-const NoteModal = ({ isOpen, toggleModal, noteData }) => {
-  // const { id, title, description, category } = noteData;
-
+const NoteModal = ({
+  isOpen,
+  toggleModal,
+  noteData,
+  bgColor,
+  categoryColor,
+}) => {
+  // eslint-disable-next-line no-unused-vars
   const [note, setNote] = useState({
     title: noteData.title,
     description: noteData.description,
@@ -31,10 +36,13 @@ const NoteModal = ({ isOpen, toggleModal, noteData }) => {
         ariaHideApp={false}
         style={customStyles}
       >
-        <div className="w-96	 p-4  m-2">
+        <div style={{ backgroundColor: bgColor }} className="w-96 p-16 rounded">
           <h3 className="text-lg font-medium mb-2">{title}</h3>
           <p className="mb-2">{description}</p>
-          <span style={{ color: "plum" }} className="">
+          <span
+            style={{ color: "", backgroundColor: categoryColor }}
+            className="mt-16 py-1 px-4 rounded-xl font-mono"
+          >
             {category}
           </span>
         </div>

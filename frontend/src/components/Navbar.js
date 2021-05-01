@@ -6,7 +6,7 @@ import NoteContext from "../context/notes/noteContext";
 
 const Navbar = () => {
   const authContext = useContext(AuthContext);
-  const {  user, logout } = authContext;
+  const { user, logout } = authContext;
 
   const noteContext = useContext(NoteContext);
   const { clearNotes } = noteContext;
@@ -24,7 +24,7 @@ const Navbar = () => {
           src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png"
           alt="notes keeper"
         />
-        <h2 className="text-2xl	font-semibold">Notes Keeper</h2>
+        <h2 className="text-2xl	font-logo-font">Notes Keeper</h2>
       </div>
 
       <div className="flex items-center justify center">

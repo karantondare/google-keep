@@ -1,17 +1,17 @@
 import React, { useContext, useState } from "react";
 import NoteContext from "../context/notes/noteContext";
-import { VscSymbolColor } from "react-icons/vsc";
 import { toast } from "react-hot-toast";
-import { IoAddSharp, IoRemoveSharp } from "react-icons/io5";
+import NoteOptions from "./notes/NoteOptions";
 
 const NoteForm = () => {
   const noteContext = useContext(NoteContext);
-
+  const [backgroundColor, setBackgroundColor] = useState("");
   const [formOpen, setFormOpen] = useState(false);
   const [note, setNote] = useState({
     title: "",
     description: "",
     category: "",
+    backgroundColor,
   });
   const { title, description, category } = note;
 
@@ -24,14 +24,25 @@ const NoteForm = () => {
     if (note.title === "" || note.description === "") {
       toast.error("Title and description cannot be empty.");
     } else {
+      note.backgroundColor = backgroundColor;
       noteContext.addNote(note);
-      setNote({ title: "", description: "", category: "" });
+
+      setNote({
+        title: "",
+        description: "",
+        category: "",
+        backgroundColor: "",
+      });
       setFormOpen(false);
+      setBackgroundColor("");
     }
   };
 
   return (
-    <div className="border-2 rounded-lg w-96 p-2 mx-4">
+    <div
+      style={{ backgroundColor: backgroundColor }}
+      className="border-2 rounded-lg w-96 p-2 mx-4 duration-500 ease-in"
+    >
       <form onSubmit={handleSubmit} autoComplete="off">
         {!formOpen && (
           <input
@@ -42,53 +53,45 @@ const NoteForm = () => {
           />
         )}
         {formOpen && (
-          <>
+          <div className="ease-in">
             <input
+              style={{ backgroundColor: backgroundColor }}
               type="text"
-              className="w-full p-1 mb-1"
+              className="w-full p-1 mb-1 rounded duration-500 ease-in"
               name="title"
               value={title}
               placeholder="Title"
               onChange={handleChange}
             />
             <input
+              style={{ backgroundColor: backgroundColor }}
               type="text"
-              className="w-full p-1 mb-1"
+              className="w-full p-1 mb-1 rounded duration-500 ease-in"
               name="description"
               value={description}
               placeholder="Take a note..."
               onChange={handleChange}
+              disabled={description.lenght > 256}
             />
-            <textarea
-              className="w-full p-1 mb-1"
-              value={note.content}
-              name="content"
-              placeholder="Take a note..."
-              onChange={handleChange}
-              rows={3}
-            ></textarea>
             <input
+              style={{ backgroundColor: backgroundColor }}
               type="text"
-              className="w-full p-1 mb-1"
+              className="w-full p-1 mb-1 rounded duration-500 ease-in"
               name="category"
               value={category}
               placeholder="Category"
               onChange={handleChange}
             />
 
-            <button className="p-1" onClick={(e) => e.preventDefault()}>
-              <VscSymbolColor className="text-gray-400" size={30} />
-            </button>
-
-            <div className="flex flex-row-reverse">
-              <button onClick={() => setFormOpen(false)}>
-                <IoRemoveSharp className="text-gray-400" size={40} />
-              </button>
-              <button type="submit">
-                <IoAddSharp className="text-gray-500" size={40} />
-              </button>
+            <div className="">
+              <NoteOptions
+                formOpen={formOpen}
+                setFormOpen={setFormOpen}
+                backgroundColor={backgroundColor}
+                setBackgroundColor={setBackgroundColor}
+              />
             </div>
-          </>
+          </div>
         )}
       </form>
     </div>

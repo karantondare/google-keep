@@ -2,11 +2,9 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import "./App.css";
-import Alerts from "./components/Alerts";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Navbar from "./components/Navbar";
-import AlertState from "./context/alert/AlertState";
 import AuthState from "./context/auth/AuthState";
 import NoteState from "./context/notes/NoteState";
 import { About } from "./Pages/About";
@@ -23,26 +21,23 @@ function App() {
   return (
     <AuthState>
       <NoteState>
-        <AlertState>
-          <BrowserRouter>
-            <div className="min-h-screen flex flex-col justify-between">
+        <BrowserRouter>
+          <div className="min-h-screen flex flex-col justify-between">
+            <div>
+              <Navbar />
+              <Toaster position="bottom-center" />
               <div>
-                <Navbar />
-                <Toaster position="bottom-center" />
-                <div>
-                  <Alerts />
-                  <Switch>
-                    <PrivateRoute exact path="/" component={Home} />{" "}
-                    <Route exact path="/about" component={About} />
-                    <Route exact path="/register" component={Register} />
-                    <Route exact path="/login" component={Login} />
-                  </Switch>
-                </div>
+                <Switch>
+                  <PrivateRoute exact path="/" component={Home} />{" "}
+                  <Route exact path="/about" component={About} />
+                  <Route exact path="/register" component={Register} />
+                  <Route exact path="/login" component={Login} />
+                </Switch>
               </div>
-              <Footer className="" />
             </div>
-          </BrowserRouter>
-        </AlertState>
+            <Footer className="" />
+          </div>
+        </BrowserRouter>
       </NoteState>
     </AuthState>
   );

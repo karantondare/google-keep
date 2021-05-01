@@ -36,12 +36,13 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { title, description, category, image } = req.body;
+    const { title, description, category, backgroundColor, image } = req.body;
     try {
       const newNote = new Note({
         title,
         description,
         category,
+        backgroundColor,
         image,
         user: req.user.id,
       });

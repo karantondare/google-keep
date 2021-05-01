@@ -8,6 +8,7 @@ const NoteSchema = mongoose.Schema({
   title: { type: String },
   description: { type: String, required: true },
   category: { type: String, required: true },
+  backgroundColor: { type: String },
   image: { type: String },
   date: { type: Date, default: Date.now },
 });

@@ -13,7 +13,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="py-8 flex justify-center">
+      <div className="py-8 flex justify-center ease-in">
         <NoteForm />
       </div>
       <Notes />
