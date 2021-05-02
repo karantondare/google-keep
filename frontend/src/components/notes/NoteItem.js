@@ -32,7 +32,7 @@ const NoteItem = ({ note }) => {
 
   return (
     <div
-      className="w-96 h-full p-4 rounded-lg m-2 "
+      className="w-96 h-full p-4 rounded-lg m-2"
       style={{ backgroundColor: bgColor }}
     >
       <h3 className="text-lg font-medium mb-2">{title}</h3>
@@ -46,28 +46,28 @@ const NoteItem = ({ note }) => {
         {category}
       </span>
 
-      <div className="flex justify-between items-center mt-4">
+      <div className="flex justify-between items-center mt-6">
         <div className="flex justify-between">
           <button>
             <FaRegBell
               style={{ color: "#4A4A4A" }}
-              className="mr-2"
-              size={24}
+              className="mr-2 mx-2"
+              size={18}
             />
           </button>
           <button>
             <FaUserPlus
               style={{ color: "#4A4A4A" }}
-              className="mr-2"
-              size={24}
+              className="mr-2 mx-2"
+              size={18}
             />
           </button>
 
           <div className="relative mr-2 hover-trigger">
             <VscSymbolColor
-              size={24}
+              size={18}
               color="#172B4D"
-              className="cursor-pointer"
+              className="cursor-pointer mx-2"
               style={{ color: "#4A4A4A" }}
             />
             <div className="absolute bg-white border border-grey-100 px-4  py-2 hover-target">
@@ -79,35 +79,35 @@ const NoteItem = ({ note }) => {
           </div>
 
           <button>
-            <FaImage style={{ color: "#4A4A4A" }} className="mr-2" size={24} />
+            <FaImage style={{ color: "#4A4A4A" }} className="mr-2" size={18} />
           </button>
 
           <button>
             <MdArchive
               style={{ color: "#4A4A4A" }}
-              className="mr-2"
-              size={24}
+              className="mr-2 mx-2"
+              size={18}
             />
           </button>
 
           <button>
             <MdUnarchive
               style={{ color: "#4A4A4A" }}
-              className="mr-2"
-              size={24}
+              className="mr-2 mx-2"
+              size={18}
             />
           </button>
         </div>
         <div className="flex justify-center items-center">
           <GrExpand
-            size={18}
-            color="#172B4D"
+            size={14}
+            color="#172B4D mx-2"
             className="cursor-pointer ml-2"
             onClick={toggleModal}
           />
           <MdDelete
-            size={24}
-            color="#172B4D"
+            size={18}
+            color="#172B4D mx-2"
             onClick={handleDelete}
             className="cursor-pointer ml-2"
           />

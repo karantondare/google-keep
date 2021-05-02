@@ -23,7 +23,7 @@ const NoteState = (props) => {
   //get user notes
   const getNotes = async (note) => {
     try {
-      const res = await axios.get(process.env.BACKEND + "/api/notes");
+      const res = await axios.get("/api/notes");
       dispatch({ type: GET_NOTES, payload: res.data });
     } catch (error) {
       dispatch({ type: NOTE_ERROR });
@@ -39,11 +39,7 @@ const NoteState = (props) => {
     };
 
     try {
-      const res = await axios.post(
-        process.env.BACKEND + "/api/notes",
-        note,
-        config
-      );
+      const res = await axios.post("/api/notes", note, config);
 
       dispatch({ type: ADD_NOTE, payload: res.data });
     } catch (error) {
@@ -54,7 +50,7 @@ const NoteState = (props) => {
   //delete note
   const deleteNote = async (id) => {
     try {
-      await axios.delete(process.env.BACKEND + `/api/notes/${id}`);
+      await axios.delete(`/api/notes/${id}`);
       dispatch({ type: DELETE_NOTE, payload: id });
     } catch (error) {
       dispatch({ type: NOTE_ERROR });

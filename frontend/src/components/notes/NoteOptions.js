@@ -16,15 +16,15 @@ const NoteOptions = ({
     <div className="flex justify-between my-2">
       <div className="flex justify-between">
         <button>
-          <FaRegBell style={{ color: "#4A4A4A" }} className="mr-2" size={20} />
+          <FaRegBell style={{ color: "#4A4A4A" }} className="mr-2" size={16} />
         </button>
         <button>
-          <FaUserPlus style={{ color: "#4A4A4A" }} className="mr-2" size={20} />
+          <FaUserPlus style={{ color: "#4A4A4A" }} className="mr-2" size={16} />
         </button>
 
         <div className="relative mt-1 mr-2 hover-trigger">
           <VscSymbolColor
-            size={20}
+            size={16}
             color="#172B4D"
             className="cursor-pointer"
           />
@@ -37,24 +37,24 @@ const NoteOptions = ({
         </div>
 
         <button>
-          <FaImage style={{ color: "#4A4A4A" }} className="mr-2" size={20} />
+          <FaImage style={{ color: "#4A4A4A" }} className="mr-2" size={16} />
         </button>
 
         <button>
-          <MdArchive style={{ color: "#4A4A4A" }} className="mr-2" size={20} />
+          <MdArchive style={{ color: "#4A4A4A" }} className="mr-2" size={16} />
         </button>
 
         <button>
           <MdUnarchive
             style={{ color: "#4A4A4A" }}
             className="mr-2"
-            size={20}
+            size={16}
           />
         </button>
       </div>
       <div>
         <button type="submit">
-          <IoAddSharp style={{ color: "#4A4A4A" }} className="mr-2" size={20} />
+          <IoAddSharp style={{ color: "#4A4A4A" }} className="mr-2" size={16} />
         </button>
         <button>
           <IoRemoveSharp
@@ -64,7 +64,7 @@ const NoteOptions = ({
             }}
             style={{ color: "#4A4A4A" }}
             className="mr-2"
-            size={20}
+            size={16}
           />
         </button>
       </div>
